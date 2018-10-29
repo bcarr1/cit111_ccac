@@ -1,0 +1,99 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+import java.util.Random;
+
+/**
+ 
+ * @author bcarr1c
+*/ 
+
+public class KennywoodRideTracker {
+   
+    public static int totalRiders;
+    public static int totalFailedRideAttempts;
+    public static int totalSickRiders;
+    final static int MINHEIGHTTHRILL = 50;
+    final static int MINHEIGHTTHEME = 30;
+    public static void main(String[] args){
+    System.out.println("Begin ride simulator");
+    printRiderStats();
+    
+    rideBlackWidow(12, 50);
+    printRiderStats();
+    
+    rideMerryGoRound(10, 45);
+    printRiderStats();
+    
+    rideMerryGoRound(3, 40);
+    printRiderStats();
+    
+    rideBlackWidow(20, 35);
+    printRiderStats();
+    
+    rideBlackWidow(12, 20); // too short
+    printRiderStats();
+    
+    
+    } // close method
+
+        
+     // close main()
+     public static void rideBlackWidow(int riders, int avgHeight){
+        if(avgHeight >= MINHEIGHTTHRILL){
+            
+            System.out.println("Riding black widow...");
+            System.out.println("I HAAAATE SPIIIIIDEEERS!/n");
+            totalRiders = totalRiders + riders;
+            Random rand = new Random();
+            int numSickRiders = rand.nextInt(riders);
+            totalSickRiders = totalSickRiders + numSickRiders;
+            
+        } else {
+            System.out.println(riders + " riders turned away sad; too short!/n");
+            totalFailedRideAttempts = totalFailedRideAttempts + riders;
+        } // end if/else
+     } // close method
+     
+     public static void rideMerryGoRound(int riders, int avgHeight){
+         if(avgHeight >= MINHEIGHTTHEME){
+             System.out.println("Riding merry-go-round");
+             System.out.println("Round...and round....and round/n");
+             totalRiders = totalRiders + riders;
+             Random rand = new Random();
+             int numSickRiders = rand.nextInt(riders);
+             totalSickRiders = totalSickRiders + numSickRiders;
+         } else {
+             System.out.println("riders + riders turned away crying: too short /n");
+             totalFailedRideAttempts = totalFailedRideAttempts + riders;
+         } // end if/else
+         
+     } // close method
+     
+     public static void printRiderStats(){
+         System.out.println("******RIDER STATS*******");
+         System.out.println("Total Riders: " + totalRiders);
+         System.out.println("Total Failed Ride Attempts; " + totalFailedRideAttempts);
+         System.out.println("Total sick riders: " + totalSickRiders);
+         System.out.println("*********************/n");
+         
+     } // close method
+     
+     } // close class
+
+     
+            
+    
+
+    
+    
+
+    
+    
+  
+
+
+
+    
